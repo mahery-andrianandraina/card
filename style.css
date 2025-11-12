@@ -1,0 +1,118 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: "Poppins", sans-serif;
+  background: black;
+  display: flex;              /* Enable flex */
+  justify-content: center;    /* Horizontal centering */
+  align-items: center;        /* Vertical centering */
+  overflow: hidden;
+  position: relative;
+}
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+.card {
+  position: relative;          /* No need for top:50% or transform anymore */
+  z-index: 10;
+  background-color: rgba(0, 30, 0, 0.9);
+  border: 2px solid #00ff00;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0,255,0,0.5);
+  width: 340px;
+  text-align: center;
+  padding: 2rem 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  animation: fadeIn 1.5s ease forwards;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 25px rgba(0,255,0,0.7); /* stronger green glow on hover */
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.profile-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #00ff00;  /* Green border to match Matrix */
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 1.4rem;
+  margin-bottom: 0.8rem;
+  color: #00ff00;  /* Green text for Matrix theme */
+}
+
+.role {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(0,100,0,0.8); /* Darker green background */
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  color: #00ff00; /* Green text */
+  font-weight: 500;
+  margin-bottom: 1.2rem;
+}
+
+.role img {
+  width: 18px;
+  height: 18px;
+  border-radius: 3px;
+}
+
+p {
+  font-size: 0.9rem;
+  color: #b4f1b4;  /* Light green for readability */
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.tech {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.tech span {
+  background: rgba(0,50,0,0.7);
+  padding: 6px 10px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  color: #00ff00;
+}
+
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.socials a {
+  color: #00ff00;
+  font-size: 1.3rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.socials a:hover {
+  color: #b4ffb4; /* lighter green on hover */
+}
