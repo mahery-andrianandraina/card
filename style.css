@@ -2,7 +2,7 @@ body, html {
   margin: 0;
   padding: 0;
   height: 100%;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Orbitron', sans-serif;
   background: black;
   display: flex;              /* Enable flex */
   justify-content: center;    /* Horizontal centering */
@@ -24,17 +24,18 @@ canvas {
   border: 2px solid #00ff00;
   border-radius: 20px;
   box-shadow: 0 0 20px rgba(0,255,0,0.5);
-  width: 340px;
+  width: 520px;
   text-align: center;
   padding: 2rem 1.5rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   opacity: 0;
   animation: fadeIn 1.5s ease forwards;
+  box-shadow: 0 0 25px rgba(0, 255, 136, 0.3), inset 0 0 10px rgba(0, 255, 136, 0.1);
 }
 
 .card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 0 25px rgba(0,255,0,0.7); /* stronger green glow on hover */
+  box-shadow: 0 0 40px rgba(0, 255, 136, 0.6);
 }
 
 @keyframes fadeIn {
@@ -100,19 +101,68 @@ p {
   color: #00ff00;
 }
 
-.socials {
+.social-links {
+  margin-top: 25px;
   display: flex;
-  justify-content: center;
-  gap: 15px;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  text-align: center;
 }
 
-.socials a {
-  color: #00ff00;
-  font-size: 1.3rem;
+.social-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #00ff88;
+  transition: transform 0.3s ease;
+}
+
+.social-item a {
+  color: #00ff88;
+  font-size: 1.8em;
+  margin-bottom: 5px;
+  text-decoration: none; /* ✅ Supprime le soulignement */
+  transition: color 0.3s, transform 0.3s;
+}
+
+.social-item span {
+  font-size: 0.85em;
+  color: #b8ffde;
+}
+
+.social-item:hover a {
+  color: #ffffff;
+  transform: scale(1.2);
+}
+
+.social-item:hover span {
+  color: #ffffff;
+}
+
+.social-item:hover {
+  transform: translateY(-5px);
+}
+.tagline {
+  font-size: 0.9em;
+  color: #00ff88;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+.btn-cv {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 10px 25px;
+  border: 1px solid #00ff88;
+  border-radius: 20px;
+  color: #00ff88;
   text-decoration: none;
-  transition: color 0.3s ease;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+.btn-cv:hover {
+  background: #00ff88;
+  color: #000;
 }
 
-.socials a:hover {
-  color: #b4ffb4; /* lighter green on hover */
-}
