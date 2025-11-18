@@ -8,16 +8,17 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
- <!-- Google tag (gtag.js) -->
- <script async src="https://www.googletagmanager.com/gtag/js?id=G-R1VRG1L133"></script>
- <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-R1VRG1L133');
-</script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-R1VRG1L133"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-R1VRG1L133');
+  </script>
 </head>
+
 <body>
   <canvas id="matrix"></canvas>
 
@@ -27,31 +28,82 @@
     
     <div class="role"> Creative Developer FullStack & Merchandising Assistant </div>
 
-    <p>Currently working as an Assistant in Sourcing and Merchandising, I coordinate between product teams, suppliers, and production units to ensure quality and on-time delivery. </br> 
-    At the same time, I’m passionate about developing web and desktop applications using Java, HTML, and CSS — a valuable skill that helps me automate and optimize daily tasks.</p>
+    <p>
+      Currently working as an Assistant in Sourcing and Merchandising, I coordinate between product teams, suppliers, and production units to ensure quality and on-time delivery.<br>
+      At the same time, I’m passionate about developing web and desktop applications using Java, HTML, and CSS — a valuable skill that helps me automate and optimize daily tasks.
+    </p>
     
-<div class="social-links">
-  <div class="social-item">
-    <a href="mailto:maheryelo2@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
-    <span>Email</span>
-  </div>
-  <div class="social-item">
-    <a href="https://github.com/mahery-andrianandraina" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-    <span>GitHub</span>
-  </div>
-  <div class="social-item">
-    <a href="https://linkedin.com/in/mahery-andrianandraina" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-    <span>LinkedIn</span>
-  </div>
-<div class="social-item">
-  <a href="https://wa.me/261346285739" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-  <span>WhatsApp</span>
-</div>
+    <div class="social-links">
+      <div class="social-item">
+        <a href="mailto:maheryelo2@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+        <span>Email</span>
+      </div>
 
-</div>
+      <div class="social-item">
+        <a href="https://github.com/mahery-andrianandraina" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+        <span>GitHub</span>
+      </div>
 
-  <script src="matrix.js"></script>
-<a href="cv-mahery.pdf" class="btn-cv" target="_blank">Download Card</a>
+      <div class="social-item">
+        <a href="https://linkedin.com/in/mahery-andrianandraina" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <span>LinkedIn</span>
+      </div>
+
+      <div class="social-item">
+        <a href="https://wa.me/261346285739" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <span>WhatsApp</span>
+      </div>
+    </div>
+
+    <script src="matrix.js"></script>
+
+    <a href="cv-mahery.pdf" class="btn-cv" target="_blank">Download Card</a>
+  </div>
+
+  <!-- ====================== VISITOR TRACKING SCRIPT ====================== -->
+  <script>
+    // ==== 1. Récupérer IP & GEO ====
+    async function getVisitorData() {
+        const ipData = await fetch("https://api.ipify.org?format=json")
+            .then(res => res.json())
+            .catch(() => ({ ip: "unknown" }));
+
+        const geoData = await fetch("https://ipinfo.io/json?token=5433b1a2b0f8aa")
+            .then(res => res.json())
+            .catch(() => ({ error: "geo unavailable" }));
+
+        return { ipData, geoData };
+    }
+
+    // ==== 2. Envoyer vers Webhook Google Script ====
+    async function sendToWebhook() {
+        const { ipData, geoData } = await getVisitorData();
+
+        const payload = {
+            visitedAt: new Date().toISOString(),
+            ip: ipData.ip,
+            location: geoData,
+            userAgent: navigator.userAgent,
+            language: navigator.language,
+            timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+            screen: {
+                width: window.innerWidth,
+                height: window.innerHeight
+            },
+            page: location.href
+        };
+
+        fetch("https://script.google.com/macros/s/AKfycbygVuq8bxPH-TbbKGICFeZybQfimAuLfMf9CX3rGu-bqyyopXo0enRfiMm1kALWSMSv/exec", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload)
+        });
+    }
+
+    // Enregistrer automatiquement à chaque visite
+    sendToWebhook();
+  </script>
+  <!-- ==================================================================== -->
 
 </body>
 </html>
