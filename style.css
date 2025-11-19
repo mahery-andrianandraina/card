@@ -26,9 +26,12 @@ canvas {
   border: 2px solid #00ff00;
   border-radius: 20px;
   box-shadow: 0 0 20px rgba(0,255,0,0.5);
-  width: 520px;
+  width: 750px;
   text-align: center;
-  padding: 1.5rem;
+  padding-top: 0.7rem;   /* réduit le haut */
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-bottom: 1.5rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   opacity: 0;
   animation: fadeIn 1.5s ease forwards;
@@ -53,12 +56,13 @@ canvas {
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid #00ff00;  /* Green border to match Matrix */
-  margin-bottom: 1rem;
+  margin-top: 0.3rem;    /* rapproche de la bordure supérieure */
+  margin-bottom: 0.4rem; /* rapproche du nom */
 }
 
 h1 {
   font-size: 1.4rem;
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.4rem;
   color: #00ff00;  /* Green text for Matrix theme */
 }
 
