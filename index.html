@@ -23,8 +23,8 @@
   <canvas id="matrix"></canvas>
 
   <div class="card">
-    <img src="files/mahery 2.JPG" alt="Profile photo" class="profile-img">
-    <h1>Mahery ANDRIANANDRAINA</h1>
+    <img src="files/mahery.jpeg" alt="Profile photo" class="profile-img">
+    <h1 id="matrix-title">MAHERY  ANDRIANANDRAINA</h1>
     
     <div class="role"> Creative Developer FullStack & Merchandising Assistant </div>
 
@@ -57,13 +57,13 @@
 
     <script src="matrix.js"></script>
 
-     <!-- BOUTON DOWNLOAD -->
+    <!-- BOUTON DOWNLOAD -->
     <button id="downloadBtn" class="btn-cv">Download CV</button>
-  </div>
+
+  </div> <!-- FIN CARD -->
 
   <!-- ====================== VISITOR TRACKING SCRIPT ====================== -->
   <script>
-    // ==== 1. Récupérer IP & GEO ====
     async function getVisitorData() {
         const ipData = await fetch("https://api.ipify.org?format=json")
             .then(res => res.json())
@@ -76,7 +76,6 @@
         return { ipData, geoData };
     }
 
-    // ==== 2. Envoyer vers Webhook Google Script ====
     async function sendToWebhook() {
         const { ipData, geoData } = await getVisitorData();
 
@@ -101,11 +100,11 @@
         });
     }
 
-    // Enregistrer automatiquement à chaque visite
     sendToWebhook();
   </script>
   <!-- ==================================================================== -->
- <!-- SCRIPT DU POPUP PAR DÉFAUT -->
+
+  <!-- SCRIPT DU POPUP PAR DÉFAUT -->
   <script>
     document.getElementById("downloadBtn").onclick = function() {
 
@@ -121,5 +120,6 @@
         }
     };
   </script>
+
 </body>
 </html>
