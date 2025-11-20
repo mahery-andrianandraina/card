@@ -36,4 +36,36 @@ window.addEventListener("load", () => {
   
     setInterval(draw, 35);
   });
-  
+
+
+const title = document.getElementById('matrix-title');
+const chars = 'XYZ0123456789@#$%&*';
+let originalText = title.textContent.split('');
+
+// Fonction pour changer aléatoirement quelques lettres
+function matrixFlash() {
+  let newText = [...originalText];
+
+  // Changer 1 ou 2 lettres aléatoires (pas les espaces)
+  const lettersToChange = Math.floor(Math.random() * 4) + 1;
+  for (let i = 0; i < lettersToChange; i++) {
+    let idx;
+    do {
+      idx = Math.floor(Math.random() * newText.length);
+    } while (newText[idx] === ' '); // ne jamais remplacer les espaces
+    newText[idx] = chars.charAt(Math.floor(Math.random() * chars.length));
+  }
+
+  // Construire le texte avec spans seulement pour les lettres
+  title.innerHTML = newText.map(c => {
+    return c === ' ' ? ' ' : `<span class="matrix-char">${c}</span>`;
+  }).join('');
+
+  // Revenir au texte original après 100ms
+  setTimeout(() => {
+    title.innerHTML = originalText.map(c => c === ' ' ? ' ' : `<span class="matrix-char">${c}</span>`).join('');
+  }, 1000);
+}
+
+// Flash toutes les 2 secondes
+setInterval(matrixFlash, 2000);
