@@ -123,35 +123,45 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #00ff88;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease-in-out;
 }
 
 .social-item a {
   color: #00ff88;
   font-size: 1.8em;
   margin-bottom: 5px;
-  text-decoration: none; /* ✅ Supprime le soulignement */
-  transition: color 0.3s, transform 0.3s;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  text-shadow: 0 0 5px #00ff88; /* glow léger initial */
 }
 
 .social-item span {
   font-size: 0.85em;
   color: #b8ffde;
+  transition: color 0.3s ease-in-out;
 }
 
+/* Hover effect Matrix style */
 .social-item:hover a {
-  color: #ffffff;
+  color: #000;
   transform: scale(1.2);
+  /* glow plus intense autour de l'icône */
+  text-shadow: 
+    0 0 10px #00ff88,
+    0 0 20px #00ff88,
+    0 0 30px #00ff88,
+    0 0 40px #00ff88;
 }
 
 .social-item:hover span {
-  color: #ffffff;
+  color: #00ff88; /* optionnel : garde vert Matrix */
 }
 
+/* légère translation pour effet dynamique */
 .social-item:hover {
-  transform: translateY(-5px);
+  transform: translateY(-5px) scale(1.05);
 }
+
 .tagline {
   font-size: 0.9em;
   color: #00ff88;
