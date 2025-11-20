@@ -61,10 +61,45 @@ canvas {
 }
 
 h1 {
+  font-family: 'Orbitron', sans-serif;
   font-size: 1.4rem;
-  margin-bottom: 0.4rem;
-  color: #00ff00;  /* Green text for Matrix theme */
+  color: #00ff88;             /* Couleur Matrix */
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  animation: matrixBlink 1.5s infinite alternate;
+  text-shadow: 
+    0 0 5px #00ff88,
+    0 0 10px #00ff88,
+    0 0 20px #00ff88;
 }
+
+/* Animation clignotante style Matrix */
+@keyframes matrixBlink {
+  0% {
+    color: #00ff88;
+    text-shadow: 
+      0 0 5px #00ff88,
+      0 0 10px #00ff88,
+      0 0 20px #00ff88;
+  }
+  50% {
+    color: #00ff88;
+    text-shadow: 
+      0 0 10px #00ff88,
+      0 0 20px #00ff88,
+      0 0 40px #00ff88,
+      0 0 60px #00ff88;
+  }
+  100% {
+    color: #00ff88;
+    text-shadow: 
+      0 0 5px #00ff88,
+      0 0 10px #00ff88,
+      0 0 20px #00ff88;
+  }
+}
+
 
 .role {
   display: inline-flex;
@@ -162,6 +197,7 @@ p {
   transform: translateY(-5px) scale(1.05);
 }
 
+
 .tagline {
   font-size: 0.9em;
   color: #00ff88;
@@ -216,3 +252,34 @@ p {
   box-shadow: 0 0 10px #00ff88, 2px -2px 15px #00ff88;
 }
 
+#matrix-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2em;
+  color: #00ff88;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  animation: matrixBlink 1.5s infinite alternate;
+  text-shadow: 
+    0 0 5px #00ff88,
+    0 0 10px #00ff88,
+    0 0 20px #00ff88;
+}
+
+/* Animation clignotante */
+@keyframes matrixBlink {
+  0% {
+    text-shadow: 0 0 5px #00ff88, 0 0 10px #00ff88, 0 0 20px #00ff88;
+  }
+  50% {
+    text-shadow: 0 0 10px #00ff88, 0 0 20px #00ff88, 0 0 40px #00ff88, 0 0 60px #00ff88;
+  }
+  100% {
+    text-shadow: 0 0 5px #00ff88, 0 0 10px #00ff88, 0 0 20px #00ff88;
+  }
+}
+
+/* Style des caractères Matrix aléatoires */
+.matrix-char {
+  display: inline-block;
+}
