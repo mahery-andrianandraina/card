@@ -161,16 +161,48 @@ p {
 .btn-cv {
   display: inline-block;
   margin-top: 25px;
-  padding: 10px 25px;
-  border: 1px solid #00ff88;
-  border-radius: 20px;
+  padding: 12px 30px;
+  border: 2px solid #00ff88;       /* Vert Matrix */
+  border-radius: 25px;             /* Coins arrondis */
   color: #00ff88;
+  background: transparent;
   text-decoration: none;
-  font-weight: 600;
-  transition: all 0.3s;
+  font-weight: 700;
+  font-family: 'Orbitron', sans-serif; /* Style techno */
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 0 5px #00ff88;
 }
+
 .btn-cv:hover {
   background: #00ff88;
   color: #000;
+  transform: scale(1.1);
+  box-shadow: 0 0 15px #00ff88, 0 0 30px #00ff88, 0 0 45px #00ff88;
+}
+
+/* Effet “glitch” léger pour le thème Matrix */
+.btn-cv::before, .btn-cv::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 25px;
+  pointer-events: none;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-cv:hover::before {
+  opacity: 0.3;
+  box-shadow: 0 0 10px #00ff88, -2px 2px 15px #00ff88;
+}
+
+.btn-cv:hover::after {
+  opacity: 0.3;
+  box-shadow: 0 0 10px #00ff88, 2px -2px 15px #00ff88;
 }
 
