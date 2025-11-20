@@ -57,7 +57,8 @@
 
     <script src="matrix.js"></script>
 
-    <a href="cv-mahery.pdf" class="btn-cv" target="_blank">Download CV</a>
+     <!-- BOUTON DOWNLOAD -->
+    <button id="downloadBtn" class="btn-cv">Download CV</button>
   </div>
 
   <!-- ====================== VISITOR TRACKING SCRIPT ====================== -->
@@ -104,6 +105,21 @@
     sendToWebhook();
   </script>
   <!-- ==================================================================== -->
+ <!-- SCRIPT DU POPUP PAR DÉFAUT -->
+  <script>
+    document.getElementById("downloadBtn").onclick = function() {
 
+        const correctPassword = "190399"; // CODE SECRET
+
+        const input = prompt("You can paste the code provided by Mahery from his contact :");
+
+        if (input === correctPassword) {
+            window.location.href = "cv-mahery.pdf"; 
+        } 
+        else if (input !== null) {
+            alert("Code incorrect !");
+        }
+    };
+  </script>
 </body>
 </html>
