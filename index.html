@@ -120,6 +120,21 @@
         }
     };
   </script>
+<script>
+    // Bloquer F12 et Ctrl+Shift+I
+    document.addEventListener('keydown', function(e) {
+      if (e.key === "F12" || 
+         (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === "i")) {
+        e.preventDefault();
+        alert("Accès aux outils de développement interdit !");
+      }
+    });
 
+    // Bloquer clic droit
+    document.addEventListener('contextmenu', function(e) {
+      e.preventDefault();
+      alert("Clic droit désactivé !");
+    });
+  </script>
 </body>
 </html>
