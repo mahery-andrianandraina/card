@@ -64,7 +64,7 @@ function matrixFlash() {
   // Revenir au texte original après 100ms
   setTimeout(() => {
     title.innerHTML = originalText.map(c => c === ' ' ? ' ' : `<span class="matrix-char">${c}</span>`).join('');
-  }, 1000);
+  }, 100);
 }
 
 // Flash toutes les 2 secondes
